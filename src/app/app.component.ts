@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RoomService } from './room.service';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hotel';
-
   rooms: {
     id: number
-  }[] = [
-    { id: 206 },
-    { id: 207 },
-    { id: 208 }
-  ];
+  }[];
+
+  constructor(private roomService: RoomService) {
+    this.rooms = this.roomService.rooms;
+  }
 }
