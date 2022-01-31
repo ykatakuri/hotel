@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RoomService } from '../room.service';
 
 @Component({
   selector: 'app-room',
@@ -15,10 +16,11 @@ export class RoomComponent implements OnInit {
 
   bottleCount = 10;
 
-  constructor() {
-   }
+  constructor(private roomService: RoomService) {
+  }
 
   ngOnInit(): void {
+    this.guest = "John Doe";
   }
 
   check():boolean {
@@ -32,10 +34,19 @@ export class RoomComponent implements OnInit {
     this.isDoNotDisturb = !this.isDoNotDisturb;
   }
 
-  
+  knockKnock(): void {
+    console.log(`Knock Knock ${this.guest} !`);
+  }
+
+  orderBottles(bottleCount: number): void {
+    console.log(`Alert quantity: ${bottleCount}`);
+  }
+
+  deleteRoom(): void {
+    this.roomService.deleteRoom(this.roomId);
+  }
+
   updateBottleCount(newCount: number):void {
     this.bottleCount = newCount;
-
   }
-  
 }
