@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hotel';
+
+  rooms: {
+    id: number
+  }[] = [
+    { id: 206 },
+    { id: 207 },
+    { id: 208 }
+  ];
 }

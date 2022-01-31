@@ -1,0 +1,17 @@
+<div>
+    <p>Room ID: {{ roomId }}</p>
+</div>
+<div>
+    <button [disabled]="isDoNotDisturb">Knock Knock</button>
+    <button (click)="switchDoNotDisturb()">Switch Knock Knock</button>
+</div>
+<div>
+    <p *ngIf="guest">Guest: {{ guest }} </p>
+</div>
+<div>
+    <p>Set guest: </p>
+    <input type="text" [(ngModel)]="guest">
+</div>
+<div>
+    <app-fridge (updateBottle)="updateBottleCount($event)" [isAvailable]="check()"></app-fridge>
+</div>
